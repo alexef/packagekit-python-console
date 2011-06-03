@@ -1,0 +1,5 @@
+Example source code using Python GI bindings for PackageKit
+
+Please see: http://www.packagekit.org/gtk-doc/
+
+Also, to get the latest gir in ubuntu, check: https://launchpad.net/~ximion/+archive/packagekit
