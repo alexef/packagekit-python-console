@@ -12,7 +12,7 @@ def progress_cb(status, typ, data=None):
 
 def main(args):
     if len(args) < 2:
-        print 'Usage: %s [search|] ' % args[0]
+        print 'Usage: %s [search|resolve] ' % args[0]
         return -1
 
     client = packagekit.Client()
@@ -34,6 +34,11 @@ def main(args):
                                 progress_cb,
                                 None
         )
+    elif args[1] == 'resolve':
+        result = client.resolve(0, (args[2],), None, progress_cb, None)
+        pkgs = result.get_package_array()
+        for p in pkgs:
+            print "*", p.get_name(), p.get_version()
     else:
         print "Unknown command: ", args[1]
 if __name__ == "__main__":
